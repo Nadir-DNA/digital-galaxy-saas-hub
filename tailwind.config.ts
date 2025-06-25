@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Cyber-punk colors
+				'dark-bg': '#0D0D0D',
+				'neon-cyan': '#00FFFF',
+				'neon-purple': '#8B5CF6',
+				'neon-pink': '#FF0080',
+				'cyber-gray': '#1A1A1A',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +94,73 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glitch': {
+					'0%, 100%': {
+						transform: 'translate(0)'
+					},
+					'10%': {
+						transform: 'translate(-2px, -2px)'
+					},
+					'20%': {
+						transform: 'translate(2px, 2px)'
+					},
+					'30%': {
+						transform: 'translate(-2px, 2px)'
+					},
+					'40%': {
+						transform: 'translate(2px, -2px)'
+					},
+					'50%': {
+						transform: 'translate(-2px, 2px)'
+					},
+					'60%': {
+						transform: 'translate(2px, -2px)'
+					},
+					'70%': {
+						transform: 'translate(-2px, -2px)'
+					},
+					'80%': {
+						transform: 'translate(2px, 2px)'
+					},
+					'90%': {
+						transform: 'translate(-2px, 2px)'
+					}
+				},
+				'neon-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(0, 255, 255, 0.8)'
+					}
+				},
+				'float-stars': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-20px)'
+					}
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glitch': 'glitch 2s infinite',
+				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+				'float-stars': 'float-stars 6s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.6s ease-out'
 			}
 		}
 	},
