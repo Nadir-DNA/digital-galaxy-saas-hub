@@ -10,7 +10,7 @@ import Background from '../components/Background';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-dark-bg text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-dark-blue text-white relative overflow-x-hidden">
       <Background />
       <Header />
       <main>

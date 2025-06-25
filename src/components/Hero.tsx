@@ -32,7 +32,7 @@ const Hero = () => {
         
         {/* CTA Button */}
         <button 
-          className={`cyber-card px-8 py-4 text-lg font-semibold neon-text hover:bg-neon-cyan hover:text-dark-bg transition-all duration-300 rounded-lg neon-border animate-neon-pulse ${
+          className={`cyber-card px-8 py-4 text-lg font-semibold neon-text hover:bg-neon-purple hover:text-dark-blue transition-all duration-300 rounded-lg neon-border animate-neon-pulse ${
             isVisible ? 'opacity-100 translate-y-0 delay-1000' : 'opacity-0 translate-y-4'
           }`}
         >
@@ -40,8 +40,8 @@ const Hero = () => {
         </button>
         
         {/* Decorative elements */}
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-neon-purple/10 rounded-full blur-3xl" />
+        <div className="absolute -top-20 -left-20 w-40 h-40 bg-neon-purple/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-bright-purple/10 rounded-full blur-3xl" />
       </div>
     </section>
   );

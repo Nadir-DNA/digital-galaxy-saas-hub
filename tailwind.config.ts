@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,12 +65,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Cyber-punk colors
-				'dark-bg': '#0D0D0D',
-				'neon-cyan': '#00FFFF',
+				// Blue background with purple neon colors
+				'dark-blue': '#101C38',
+				'medium-blue': '#1E2F53',
 				'neon-purple': '#8B5CF6',
-				'neon-pink': '#FF0080',
-				'cyber-gray': '#1A1A1A',
+				'bright-purple': '#A855F7',
+				'light-purple': '#C4B5FD',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -129,10 +128,10 @@ export default {
 				},
 				'neon-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)'
+						boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)'
 					},
 					'50%': {
-						boxShadow: '0 0 30px rgba(0, 255, 255, 0.8)'
+						boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)'
 					}
 				},
 				'float-stars': {

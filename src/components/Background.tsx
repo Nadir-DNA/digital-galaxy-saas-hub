@@ -10,12 +10,12 @@ const Background = () => {
         {Array.from({ length: 50 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-neon-cyan rounded-full opacity-30"
+            className="absolute w-1 h-1 bg-neon-purple rounded-full opacity-30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 6}s`,
-              boxShadow: '0 0 6px rgba(0, 255, 255, 0.8)'
+              boxShadow: '0 0 6px rgba(139, 92, 246, 0.8)'
             }}
           />
         ))}
@@ -24,8 +24,8 @@ const Background = () => {
         <svg className="absolute inset-0 w-full h-full opacity-20">
           <defs>
             <linearGradient id="constellation" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00FFFF" />
-              <stop offset="100%" stopColor="#8B5CF6" />
+              <stop offset="0%" stopColor="#8B5CF6" />
+              <stop offset="100%" stopColor="#A855F7" />
             </linearGradient>
           </defs>
           <path
@@ -46,7 +46,7 @@ const Background = () => {
       </div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-transparent to-cyber-gray opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-blue via-transparent to-medium-blue opacity-90" />
     </div>
   );
 };

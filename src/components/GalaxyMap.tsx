@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import SaasCard from './SaasCard';
 
@@ -101,8 +100,8 @@ const GalaxyMap = () => {
               onClick={() => setActiveTag(tag)}
               className={`px-6 py-2 rounded-full border transition-all duration-300 ${
                 activeTag === tag
-                  ? 'neon-border neon-text bg-neon-cyan/10'
-                  : 'border-gray-600 text-gray-400 hover:border-neon-cyan hover:text-neon-cyan'
+                  ? 'neon-border neon-text bg-neon-purple/10'
+                  : 'border-gray-600 text-gray-400 hover:border-neon-purple hover:text-neon-purple'
               }`}
             >
               {tag}

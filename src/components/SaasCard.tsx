@@ -38,18 +38,18 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
       </p>
 
       {/* Promo code section */}
-      <div className="bg-cyber-gray/50 rounded-lg p-4 mb-4 border border-neon-cyan/20">
+      <div className="bg-medium-blue/50 rounded-lg p-4 mb-4 border border-neon-purple/20">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm text-gray-400 mb-1">Code promo</p>
-            <p className="font-mono text-neon-cyan font-bold">{promo}</p>
+            <p className="font-mono text-neon-purple font-bold">{promo}</p>
           </div>
           <button
             onClick={handleCopyPromo}
             className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
               copied
                 ? 'bg-green-500 text-white'
-                : 'bg-neon-cyan/20 text-neon-cyan hover:bg-neon-cyan hover:text-dark-bg border border-neon-cyan/30'
+                : 'bg-neon-purple/20 text-neon-purple hover:bg-neon-purple hover:text-dark-blue border border-neon-purple/30'
             }`}
           >
             {copied ? '✓ Copié!' : 'COPIER'}
@@ -57,7 +57,7 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
         </div>
         {/* Animated promo badge */}
         <div className="mt-2">
-          <span className="inline-block animate-neon-pulse text-xs px-2 py-1 rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/30">
+          <span className="inline-block animate-neon-pulse text-xs px-2 py-1 rounded-full bg-bright-purple/20 text-bright-purple border border-bright-purple/30">
             Exclusif Digital DNA
           </span>
         </div>
@@ -68,7 +68,7 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full text-center py-3 rounded-lg border border-gray-600 text-gray-300 hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300"
+        className="block w-full text-center py-3 rounded-lg border border-gray-600 text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all duration-300"
       >
         Visiter →
       </a>
