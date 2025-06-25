@@ -68,10 +68,9 @@
   .neon-text {
     color: #8B5CF6;
     text-shadow: 
-      0 0 5px #8B5CF6,
-      0 0 10px #8B5CF6,
-      0 0 20px #8B5CF6,
-      0 0 40px #8B5CF6;
+      0 0 3px #8B5CF6,
+      0 0 6px #8B5CF6,
+      0 0 10px #8B5CF6;
   }
 
   .neon-border {
