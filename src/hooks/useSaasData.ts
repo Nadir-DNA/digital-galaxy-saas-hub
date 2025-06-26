@@ -30,7 +30,21 @@ export const useSaasData = () => {
           throw error;
         }
 
-        setSaasData(data || []);
+        // Sort tools to put those with promo codes first
+        const sortedData = (data || []).sort((a, b) => {
+          const aHasPromo = a.promo_code && a.promo_code.trim() !== '';
+          const bHasPromo = b.promo_code && b.promo_code.trim() !== '';
+          
+          // If both have promo codes or both don't, maintain original order
+          if (aHasPromo === bHasPromo) {
+            return 0;
+          }
+          
+          // Tools with promo codes come first
+          return aHasPromo ? -1 : 1;
+        });
+
+        setSaasData(sortedData);
       } catch (err) {
         console.error('Error fetching SaaS data:', err);
         setError(err instanceof Error ? err.message : 'Une erreur est survenue');
