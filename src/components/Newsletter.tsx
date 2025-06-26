@@ -9,8 +9,8 @@ const Newsletter = () => {
     e.preventDefault();
     if (email) {
       // Track newsletter signup
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'newsletter_signup', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'newsletter_signup', {
           'event_category': 'engagement',
           'event_label': 'newsletter_subscription'
         });

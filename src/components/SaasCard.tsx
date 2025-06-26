@@ -17,8 +17,8 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
     setCopied(true);
     
     // Track promo code copy
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'promo_code_copy', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'promo_code_copy', {
         'event_category': 'engagement',
         'event_label': title,
         'custom_parameters': {
@@ -33,8 +33,8 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
 
   const handleVisitSaas = () => {
     // Track external link clicks
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'saas_visit', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'saas_visit', {
         'event_category': 'outbound_link',
         'event_label': title,
         'custom_parameters': {
