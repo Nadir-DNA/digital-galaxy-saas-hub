@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import SaasCard from './SaasCard';
@@ -40,8 +41,8 @@ const GalaxyMap = () => {
 
   // Enhanced filtering logic that combines tag filter and search
   const filteredTools = saasData.filter(tool => {
-    // First apply tag filter
-    const matchesTag = activeTag === "All" || tool.tags.includes(activeTag);
+    // First apply tag filter with partial matching
+    const matchesTag = activeTag === "All" || tool.tags.some(tag => tag.includes(activeTag));
     
     // Then apply search filter
     const matchesSearch = searchTerm === "" || 
