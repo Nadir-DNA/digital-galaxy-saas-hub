@@ -31,28 +31,28 @@ const GalaxyMap = () => {
       { threshold: 0.1 }
     );
 
-    const cards = document.querySelectorAll('.saas-card');
+    const cards = document.querySelectorAll('.tool-card');
     cards.forEach(card => observer.observe(card));
 
     return () => observer.disconnect();
   }, [saasData]);
 
-  const filteredSaas = activeTag === "All" 
+  const filteredTools = activeTag === "All" 
     ? saasData 
-    : saasData.filter(saas => saas.tags.includes(activeTag));
+    : saasData.filter(tool => tool.tags.includes(activeTag));
 
   const tags = getAllTags();
 
   if (error) {
     return (
-      <section id="saas" className="py-20 px-6 relative z-10">
+      <section id="tools" className="py-20 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              Codes Promo SaaS
+              Productivity Tools
             </h2>
             <p className="text-red-400 mb-8">
-              Erreur lors du chargement des données: {error}
+              Error loading data: {error}
             </p>
           </div>
         </div>
@@ -61,23 +61,23 @@ const GalaxyMap = () => {
   }
 
   return (
-    <section id="saas" className="py-20 px-6 relative z-10">
+    <section id="tools" className="py-20 px-6 relative z-10">
       <div className="container mx-auto max-w-6xl">
         {/* Section title - SEO optimized */}
         <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Codes Promo SaaS Exclusifs
+            Productivity Tools Galaxy
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Explorez notre collection premium d'outils SaaS avec des codes promo exclusifs. 
-            CRM, marketing automation, outils de productivité : trouvez le SaaS parfait pour votre startup 
-            et économisez jusqu'à 50% sur votre premier abonnement.
+            Discover our curated collection of premium productivity tools. 
+            From CRM and marketing automation to design and development tools: find the perfect solution 
+            to boost your efficiency and accelerate your success.
           </p>
           
           {/* SEO keywords section */}
           <div className="mt-6 text-sm text-gray-400">
             <p>
-              <strong>Catégories populaires :</strong> CRM • Marketing • Productivité • Analytics • E-commerce • Support Client
+              <strong>Popular Categories:</strong> CRM • Marketing • Productivity • Analytics • E-commerce • Customer Support • Design • Development
             </p>
           </div>
         </header>
@@ -99,7 +99,7 @@ const GalaxyMap = () => {
         ) : (
           <>
             {/* Filter tags - SEO optimized */}
-            <nav className="flex flex-wrap justify-center gap-4 mb-12" aria-label="Filtres par catégorie SaaS">
+            <nav className="flex flex-wrap justify-center gap-4 mb-12" aria-label="Filter by tool category">
               {tags.map((tag) => (
                 <button
                   key={tag}
@@ -110,56 +110,56 @@ const GalaxyMap = () => {
                       : 'border-gray-600 text-gray-400 hover:border-neon-purple hover:text-neon-purple'
                   }`}
                   aria-pressed={activeTag === tag}
-                  title={`Filtrer les SaaS par catégorie ${tag}`}
+                  title={`Filter tools by ${tag} category`}
                 >
                   {tag}
                 </button>
               ))}
             </nav>
 
-            {/* SaaS grid with structured data */}
+            {/* Tools grid with structured data */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredSaas.map((saas, index) => (
+              {filteredTools.map((tool, index) => (
                 <article
-                  key={`${saas.id}-${activeTag}`}
+                  key={`${tool.id}-${activeTag}`}
                   data-index={index}
-                  className={`saas-card transition-all duration-700 ${
+                  className={`tool-card transition-all duration-700 ${
                     visibleCards[index] ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <SaasCard 
-                    title={saas.title}
-                    url={saas.url}
-                    tag={saas.tags[0]}
-                    description={saas.description}
-                    promo={saas.promo_code}
+                    title={tool.title}
+                    url={tool.url}
+                    tag={tool.tags[0]}
+                    description={tool.description}
+                    promo={tool.promo_code}
                   />
                   
-                  {/* Structured data for each SaaS */}
+                  {/* Structured data for each tool */}
                   <script type="application/ld+json">
                     {JSON.stringify({
                       "@context": "https://schema.org",
-                      "@type": "Product",
-                      "name": saas.title,
-                      "description": saas.description,
-                      "url": saas.url,
-                      "category": saas.tags[0],
-                      "offers": {
+                      "@type": "SoftwareApplication",
+                      "name": tool.title,
+                      "description": tool.description,
+                      "url": tool.url,
+                      "applicationCategory": tool.tags[0],
+                      "offers": tool.promo_code ? {
                         "@type": "Offer",
-                        "description": `Code promo exclusif: ${saas.promo_code}`,
-                        "promoCode": saas.promo_code,
+                        "description": `Exclusive promo code: ${tool.promo_code}`,
+                        "promoCode": tool.promo_code,
                         "availability": "https://schema.org/InStock"
-                      }
+                      } : undefined
                     })}
                   </script>
                 </article>
               ))}
             </div>
 
-            {filteredSaas.length === 0 && (
+            {filteredTools.length === 0 && (
               <div className="text-center text-gray-400 mt-12">
-                <p>Aucun SaaS trouvé pour cette catégorie.</p>
+                <p>No tools found for this category.</p>
               </div>
             )}
           </>

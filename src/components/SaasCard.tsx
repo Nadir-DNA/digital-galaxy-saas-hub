@@ -23,7 +23,7 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
         'event_label': title,
         'custom_parameters': {
           'promo_code': promo,
-          'saas_name': title
+          'tool_name': title
         }
       });
     }
@@ -31,19 +31,21 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleVisitSaas = () => {
+  const handleVisitTool = () => {
     // Track external link clicks
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'saas_visit', {
+      window.gtag('event', 'tool_visit', {
         'event_category': 'outbound_link',
         'event_label': title,
         'custom_parameters': {
           'destination_url': url,
-          'saas_category': tag
+          'tool_category': tag
         }
       });
     }
   };
+
+  const hasPromo = promo && promo.trim() !== '';
 
   return (
     <article className="cyber-card p-6 rounded-lg h-full flex flex-col" itemScope itemType="https://schema.org/Product">
@@ -64,50 +66,52 @@ const SaasCard: React.FC<SaasCardProps> = ({ title, url, tag, description, promo
         {description}
       </p>
 
-      {/* Promo code section */}
-      <div className="bg-medium-blue/50 rounded-lg p-4 mb-4 border border-neon-purple/20" itemScope itemType="https://schema.org/Offer">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-sm text-gray-400 mb-1">Code promo exclusif</p>
-            <p className="font-mono text-neon-purple font-bold text-lg" itemProp="promoCode">
-              {promo}
-            </p>
+      {/* Promo code section - only show if promo exists */}
+      {hasPromo && (
+        <div className="bg-medium-blue/50 rounded-lg p-4 mb-4 border border-neon-purple/20" itemScope itemType="https://schema.org/Offer">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-gray-400 mb-1">Exclusive Promo Code</p>
+              <p className="font-mono text-neon-purple font-bold text-lg" itemProp="promoCode">
+                {promo}
+              </p>
+            </div>
+            <button
+              onClick={handleCopyPromo}
+              className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
+                copied
+                  ? 'bg-green-500 text-white'
+                  : 'bg-neon-purple/20 text-neon-purple hover:bg-neon-purple hover:text-dark-blue border border-neon-purple/30'
+              }`}
+              aria-label={`Copy promo code ${promo} for ${title}`}
+            >
+              {copied ? '✓ Copied!' : 'COPY'}
+            </button>
           </div>
-          <button
-            onClick={handleCopyPromo}
-            className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
-              copied
-                ? 'bg-green-500 text-white'
-                : 'bg-neon-purple/20 text-neon-purple hover:bg-neon-purple hover:text-dark-blue border border-neon-purple/30'
-            }`}
-            aria-label={`Copier le code promo ${promo} pour ${title}`}
-          >
-            {copied ? '✓ Copié!' : 'COPIER'}
-          </button>
+          
+          {/* Animated promo badge */}
+          <div className="mt-3 flex items-center justify-between">
+            <span className="inline-block animate-neon-pulse text-xs px-2 py-1 rounded-full bg-bright-purple/20 text-bright-purple border border-bright-purple/30">
+              Exclusive Digital DNA
+            </span>
+            <span className="text-xs text-gray-500">
+              Verified daily
+            </span>
+          </div>
         </div>
-        
-        {/* Animated promo badge */}
-        <div className="mt-3 flex items-center justify-between">
-          <span className="inline-block animate-neon-pulse text-xs px-2 py-1 rounded-full bg-bright-purple/20 text-bright-purple border border-bright-purple/30">
-            Exclusif Digital DNA
-          </span>
-          <span className="text-xs text-gray-500">
-            Vérifié quotidiennement
-          </span>
-        </div>
-      </div>
+      )}
 
       {/* Visit button */}
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleVisitSaas}
+        onClick={handleVisitTool}
         className="block w-full text-center py-3 rounded-lg border border-gray-600 text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all duration-300 font-medium"
         itemProp="url"
-        aria-label={`Visiter ${title} avec le code promo ${promo}`}
+        aria-label={`Visit ${title}${hasPromo ? ` with promo code ${promo}` : ''}`}
       >
-        Visiter {title} →
+        Visit {title} →
       </a>
     </article>
   );

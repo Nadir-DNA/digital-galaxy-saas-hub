@@ -8,10 +8,10 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const scrollToSaas = () => {
-    const saasSection = document.getElementById('saas');
-    if (saasSection) {
-      saasSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToTools = () => {
+    const toolsSection = document.getElementById('tools');
+    if (toolsSection) {
+      toolsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -34,7 +34,7 @@ const Hero = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Codes Promo SaaS Exclusifs | Économisez sur vos Outils Startup
+          Your Productivity Tools Galaxy | Discover the Best Tools for Success
         </h2>
         
         {/* Value proposition */}
@@ -43,19 +43,19 @@ const Hero = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Découvrez notre galaxie de SaaS premium avec des réductions exclusives jusqu'à 50%. 
-          CRM, marketing, productivité : tous vos outils startup à prix réduit.
+          Explore our curated collection of premium productivity tools. 
+          From CRM to marketing automation, find the perfect tools to accelerate your success.
         </p>
         
         {/* CTA Button */}
         <button 
-          onClick={scrollToSaas}
+          onClick={scrollToTools}
           className={`cyber-card px-8 py-4 text-lg font-semibold neon-text hover:bg-neon-purple hover:text-dark-blue transition-all duration-300 rounded-lg neon-border animate-neon-pulse ${
             isVisible ? 'opacity-100 translate-y-0 delay-1000' : 'opacity-0 translate-y-4'
           }`}
-          aria-label="Découvrir les codes promo SaaS exclusifs"
+          aria-label="Discover the best productivity tools"
         >
-          Découvrir les Codes Promo 🚀
+          Discover Tools 🚀
         </button>
         
         {/* Trust indicators */}
@@ -65,13 +65,13 @@ const Hero = () => {
           }`}
         >
           <span className="flex items-center gap-2">
-            ✅ Codes vérifiés quotidiennement
+            ✅ Curated by experts
           </span>
           <span className="flex items-center gap-2">
-            💰 Jusqu'à 50% d'économies
+            💰 Tools for every budget
           </span>
           <span className="flex items-center gap-2">
-            🇫🇷 Spécialisé France
+            🚀 Boost your productivity
           </span>
         </div>
         
