@@ -66,11 +66,17 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Blue background with purple neon colors
+				// Old galaxy colors - keeping some for safety during transition
 				'dark-blue': '#101C38',
 				'medium-blue': '#1E2F53',
 				'neon-purple': '#8B5CF6',
 				'bright-purple': '#A855F7',
 				'light-purple': '#C4B5FD',
+				
+				// New Premium Consulting Identity
+				'brand-blue': '#1A2B3C', // Bleu Nuit Profond
+				'brand-gold': '#C5A059', // Or Satiné
+				'brand-white': '#FFFFFF', // Blanc Pur
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

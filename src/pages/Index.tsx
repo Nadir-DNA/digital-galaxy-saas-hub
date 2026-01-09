@@ -1,25 +1,20 @@
-
 import React from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import GalaxyMap from '../components/GalaxyMap';
-import WhySection from '../components/WhySection';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
-import Background from '../components/Background';
+import ConsultingHero from '../components/ConsultingHero';
+import DoubleExpertise from '../components/DoubleExpertise';
+import TIHSection from '../components/TIHSection';
+import ConsultingAbout from '../components/ConsultingAbout';
+import ConsultingFooter from '../components/ConsultingFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-dark-blue text-white relative overflow-x-hidden">
-      <Background />
-      <Header />
+    <div className="min-h-screen bg-brand-blue text-white overflow-x-hidden selection:bg-brand-gold selection:text-brand-blue font-sans">
       <main>
-        <Hero />
-        <GalaxyMap />
-        <WhySection />
-        <Newsletter />
+        <ConsultingHero />
+        <DoubleExpertise />
+        <TIHSection />
+        <ConsultingAbout />
       </main>
-      <Footer />
+      <ConsultingFooter />
     </div>
   );
 };
