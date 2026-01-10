@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { PopupModal } from "react-calendly";
 
 const ConsultingHero = () => {
+    const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
     return (
         <section className="relative min-h-[90vh] flex items-center bg-brand-blue overflow-hidden">
             {/* Abstract Background Element */}
@@ -32,17 +35,15 @@ const ConsultingHero = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-6 pt-8">
-                        <a
-                            href="https://calendly.com/dnadir23/new-meeting-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group relative px-8 py-4 bg-brand-gold hover:bg-white text-brand-blue font-semibold transition-all duration-300 overflow-hidden inline-block"
+                        <button
+                            onClick={() => setIsCalendlyOpen(true)}
+                            className="group relative px-8 py-4 bg-brand-gold hover:bg-white text-brand-blue font-semibold transition-all duration-300 overflow-hidden inline-block cursor-pointer"
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 Réserver un Diagnostic Flash
                                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -51,6 +52,13 @@ const ConsultingHero = () => {
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
                 <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
             </div>
+
+            <PopupModal
+                url="https://calendly.com/thedigitaldna/30min"
+                onModalClose={() => setIsCalendlyOpen(false)}
+                open={isCalendlyOpen}
+                rootElement={document.getElementById("root")!}
+            />
         </section>
     );
 };
